@@ -11,14 +11,36 @@ const login = async (user: any, password: any) => {
   };
    const { data } = await axios.post(`${URL}oauth/token`, body);
    return data;
-} 
+};
 
 const getMenu = () => {
    return axios.get(`${URL}api/menus`)
       .then((response: AxiosResponse) => response.data)
 };
 
+const getUser = async (tokenType:string, accessToken:string) => {
+   const headers:{} = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded',
+      Authorization: `${tokenType} ${accessToken}`
+   };
+   const { data } = await axios.get(`${URL}api/users`, {headers});
+   return data;
+};
+
+const getOrders = async (tokenType:string, accessToken:string) => {
+   const headers:{} = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded',
+      Authorization: `${tokenType} ${accessToken}`
+   };
+   const { data } = await axios.get(`${URL}api/orders`, {headers});
+   return data;
+};
+
 export {
    getMenu,
-   login
+   login,
+   getUser,
+   getOrders
 };

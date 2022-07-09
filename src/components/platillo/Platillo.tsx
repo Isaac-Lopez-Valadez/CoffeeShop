@@ -4,8 +4,8 @@ import {Grid, Card, CardHeader,
 
 const Platillo = ({platillo}: any) => {
   return (
-    <Grid item xs={12} sm={5}>
-      <Card sx={{ maxWidth: '100%', backgroundColor:'#bdbdbd' }}>
+    <Grid key={platillo.id} item xs={12} sm={5}>
+      <Card sx={{ maxWidth: '90%', backgroundColor:'#bdbdbd' }}>
         <CardHeader
         title={`Precio: ${platillo.price}`}
         />

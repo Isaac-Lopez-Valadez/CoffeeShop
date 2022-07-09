@@ -67,7 +67,6 @@ export default function NavBar({eventOpen, setEventOpen, session, setSession, se
           onClick={handleClick}>
             Iniciar sesión
           </Button>
-          
           }
         </Toolbar>
       </AppBar>
