@@ -54,7 +54,6 @@ function App() {
           <Route path='/pedidos' element={<PedidosMain user={user}/>}/>
           <Route path='/usuarios' element={<UsuariosMain user={user}/>}/>
           <Route path='/iniciar-sesion' element={<LoginMain setSession={setSession} setUser={setUser} session={session}/>}/>
-
         </Routes>
 
       </Box>

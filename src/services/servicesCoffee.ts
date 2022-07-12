@@ -28,7 +28,7 @@ const getUser = async (tokenType:string, accessToken:string) => {
    return data;
 };
 
-const getOrders = async (tokenType:string, accessToken:string) => {
+const getOrder = async (tokenType:string, accessToken:string) => {
    const headers:{} = {
       'Accept': 'application/json',
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -42,5 +42,5 @@ export {
    getMenu,
    login,
    getUser,
-   getOrders
+   getOrder
 };

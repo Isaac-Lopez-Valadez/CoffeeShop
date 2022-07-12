@@ -5,6 +5,9 @@ const theme = createTheme({
     h1:{
      fontFamily:'Rufina'
     },
+    h4:{
+      fontFamily:'Rufina'   
+     },
     h5:{
       fontFamily:'Rufina'   
      },
