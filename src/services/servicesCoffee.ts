@@ -38,9 +38,20 @@ const getOrder = async (tokenType:string, accessToken:string) => {
    return data;
 };
 
+const postOrder = async (tokenType:string, accessToken:string, body:any) => {
+   const headers:{} = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Authorization': `${tokenType} ${accessToken}`
+   };
+   const { data } = await axios.put(`${URL}api/orders`,  body, {headers});
+   return data;
+};
+
 export {
    getMenu,
    login,
    getUser,
-   getOrder
+   getOrder,
+   postOrder
 };

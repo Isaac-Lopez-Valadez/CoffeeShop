@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import { getOrder, getUser, getMenu } from '../../services/servicesCoffee';
+import { getOrder, getUser, getMenu, postOrder } from '../../services/servicesCoffee';
 import { Box, Typography, Toolbar, Stack, 
   Avatar, Divider, Button, Grid, TextField} from '@mui/material';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
@@ -40,8 +40,31 @@ import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const table = data.keys();
-  };
+    const table = data.get('Table');
+    const product = data.get('Product');
+    const quantity = data.get('Quantity');
+    if(table && product && quantity){
+      const body = {
+        id: 327,
+        created_at: 1655184974000,
+        waiter: 2,
+        table: 2,
+        order: [
+            {
+              product: 1,
+              quantity:1
+            }]
+      };
+      try {
+        const tokenString:any = window.localStorage.getItem('session');
+        const {access_token: accessToken, token_type: tokenType} = JSON.parse(tokenString);
+        const data = await postOrder(tokenType, accessToken, body);
+        console.log(data);
+    }catch(e) {
+      console.log(e);
+    }
+  }
+};
 
   return (
     <Box component="main"
